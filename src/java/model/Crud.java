@@ -4,6 +4,7 @@
  */
 package model;
 
+import db.ConexionSingleton;
 import java.util.List;
 import java.util.Optional;
 
