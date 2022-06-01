@@ -27,22 +27,47 @@ public class DaoT_User implements Crud<T_User>{
 
     @Override
     public void insert(T_User obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "INSERT INTO t_user VALUES(NULL,'"+obj.getNombre()+"')";
+        try {
+            con.getCon().createStatement().execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(T_User obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "DELETE FROM t_user WHERE id =  '"+ obj.getId()+"'";
+        try {
+            con.getCon().createStatement().execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public List<T_User> get(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public T_User get(int i) {
+        String sql = "SELECT * FROM t_user WHERE id =  '"+ i +"'";
+        try {
+            ResultSet rs = con.getCon().createStatement().executeQuery(sql);
+            if(rs.next()){
+                return new T_User(rs.getInt("id"),rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     @Override
     public void update(T_User obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "UPDATE t_user SET nombre='"+obj.getNombre()+"' WHERE id =  '"+ obj.getId()+"'";
+        try {
+            con.getCon().createStatement().execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

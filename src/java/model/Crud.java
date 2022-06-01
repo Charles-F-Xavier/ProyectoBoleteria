@@ -15,7 +15,7 @@ public interface Crud<E> {
     
     void insert(E obj);
     void delete(E obj);
-    List<E> get(int id);
+    E get(int id);
     void update(E obj);
     List<E> getAll();
     

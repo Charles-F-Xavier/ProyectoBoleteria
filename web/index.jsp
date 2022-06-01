@@ -33,6 +33,10 @@
             DaoT_User oDaoT_User = new DaoT_User(oConexionSingleton);
 
             List<T_User> all = oDaoT_User.getAll();
+            
+            T_User oT_User1=oDaoT_User.get(1);
+            
+            out.print("<br>"+oT_User1+"<br>");
 
             //out.print("<br>" + all);
             if (!all.isEmpty()) {
