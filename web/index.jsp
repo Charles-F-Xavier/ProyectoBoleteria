@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     </head>
     <body style="background-color: white">
         <div style="height: 100vh; position: absolute"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M255.78,-41.06 C195.73,210.58 387.36,0.52 580.89,218.59 L509.31,149.52 L500.00,0.00 Z" style="stroke: none; fill: #ff9100;"></path></svg></div>
@@ -18,9 +19,39 @@
                     <li><a href="#" class="link-nav-white">Productos</a></li>
                     <li><a href="#" class="link-nav-white">Servicios</a></li>
                     <li><a href="#" class="link-nav-white">Contacto</a></li>
-                    <li><a href="Log.do" class="waves-effect waves-light btn-large link-nav transparent" style="border-radius: 50px; color: white; box-shadow: none; border: 0.15rem solid white"><i class="material-icons left" style="font-size: 35px; color: white">account_circle</i>Iniciar sesión</a></li>
+                    <li><a href="#modal_pass" class="waves-effect waves-light btn-large transparent btn modal-trigger" style="border-radius: 50px; color: white; box-shadow: none; border: 0.15rem solid white"><i class="material-icons left" style="font-size: 35px; color: white">account_circle</i>Iniciar sesión</a></li>
                 </ul>
             </div>
+            <div id="modal_pass" class="modal" style="margin-top: 100px">
+            <div class="modal-content">
+                <form class="col s2" action="Controller_Login.do" method="post">
+                    <div class="modal-content">
+                        <h4 style="font-size: 50px; color: black">Cambiar contraseña</h4>
+                        <p style="font: bold; font-size: 20px">Tu contraseña es temporal, reestablecela</p>
+                        <div class="row">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input name="txt_correo" id="pass" type="password" class="validate" required>
+                                    <label for="txt_correo">Nueva contraseña</label>
+                                </div>
+                            </div>
+                            <div class="row right">
+                                <img style="width: 350px; height: 350px; margin-right: 100px; margin-top:-150px" src="img/iconPass.png"/>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input name="txt_passw" id="pass2" type="password" class="validate" required>
+                                    <label for="txt_passw">Confirmar nueva contraseña</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-left:170px; background-color: #1d1b31; width: 200px; height: 50px">Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         </nav>
         <section>
             <div class="row" style="background-color: white; height: 90vh">
@@ -176,5 +207,15 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                M.AutoInit();
+            });
+            /*$(document).ready(function () {
+             $('.modal').modal();
+             });*/
+        </script>
     </body>
+
+
 </html>
